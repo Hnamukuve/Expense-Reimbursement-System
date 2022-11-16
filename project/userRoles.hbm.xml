@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "UserRoles" table = "ers_user_roles">
+      
+      <meta attribute = "class-description">
+         This class contains the user roles. 
+      </meta>
+      
+       <id name = "userRoleId" type = "int" column = "ers_user_role_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "userRole" column = "user_role" type = "string"/>
+      
+   </class>
+</hibernate-mapping>

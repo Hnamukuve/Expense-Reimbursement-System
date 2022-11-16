@@ -3,26 +3,57 @@ package reimbursements;
 import java.util.ArrayList;
 import java.util.List;
 
+import users.UserDAO;
+import users.Users;
+
 
 public class ReimbService {
 
-	private final ReimbDAO reimbDAO;
+	private  ReimbDAO rd;
 	
-    public ReimbService(ReimbDAO reimbDAO) {
-        this.reimbDAO = reimbDAO;
-    }
+	
+	public Boolean create(Reimb reimb) {
     
-    public List<ReimbResponse> getAllReimb() {
+		rd = new ReimbDAO();
+		if(rd.createReimb(reimb)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public  void updateReimb(Reimb r) {
+		try {
+			rd.update(r);
+		} catch (Exception e) {
+		
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Reimb> getAllReimb() {
+		
+		List<Reimb> reimb = rd.getAllReimb();
+		return reimb;  
+	}
+     
+	public  List<Reimb> getUserReimbs(Users user) {
+		List<Reimb> reimb = rd.findAllById(user.getId());
+		return reimb;
+	}
+	
+	public Boolean getReimbByStatusId(int status_id) {
+		
+		rd = new ReimbDAO();
+		Reimb reimb = null;
+		return null;
+		
+		
+	}
+	
+	public void approveAllReimbursements(String username) {
+	
+		
+	}
+ 
 
-        
-        List<ReimbResponse> result = new ArrayList<>();
-        List<Reimb> reimb = reimbDAO.getAllReimb();
-
-        for (Reimb reimbs : reimb) {
-            result.add(new ReimbResponse());
-        }
-
-        return result;
-
-    }
 }

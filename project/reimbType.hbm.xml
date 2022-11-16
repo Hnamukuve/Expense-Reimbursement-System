@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ReimbType" table = "ers_reimb_type">
+      
+      <meta attribute = "class-description">
+         This class contains the reimbursement types. 
+      </meta>
+      
+       <id name = "reimbTypeId" type = "int" column = "reimb_type_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "reimbType" column = "reimb_type" type = "string"/>
+      
+   </class>
+</hibernate-mapping>

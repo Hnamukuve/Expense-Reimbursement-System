@@ -160,29 +160,14 @@ public class ReimbDAO implements DAO<Reimb> {
 			return null;
 		}
 
-		
-		
-		 /*private List<Reimb> mapResultSet(ResultSet rs) throws SQLException {
+		public boolean createReimb(Reimb reimb) {
+			
+			return false;
+		}
 
-		        List<Reimb> reimb = new ArrayList<>();
-		        
-		        while (rs.next()) {
-		            
-		            Reimb reimb = new Reimb();
-		            reimb.setReimbId(rs.getInt("reimb_id"));
-		            reimb.setReimbAmount(rs.getFloat("amount"));
-		            reimb.setReimbSubmitted(rs.getTimestamp("submitted").toLocalDateTime());
-		            Timestamp resolvedTs = rs.getTimestamp("resolved");
-		            reimb.setReimbResolved(resolvedTs == null ? null : resolvedTs.toLocalDateTime());
-		            reimb.setReimbDescription(rs.getString("description"));
-		            reimb.setReimbAuthor(rs.getInt("reimb_author"));
-		            reimb.setReimbResolver(rs.getInt("reimb_resolver"));
-		            reimb.setReimbStatusId(rs.getInt("reimb_status_id"));
-		            reimb.setReimbTypeId(rs.getInt("reimb_type_id"));
-		        
-		            ((List<Reimb>) reimb).add(reimb);
-		        }
+		public List<Reimb> findAllById(int id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
-		        return reimb;
-		    }*/
 }

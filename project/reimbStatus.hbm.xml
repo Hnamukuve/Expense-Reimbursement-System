@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "ReimbStatus" table = "ers_reimb_status">
+      
+      <meta attribute = "class-description">
+         This class contains the reimbursement statuses. 
+      </meta>
+      
+       <id name = "reimbStatusId" type = "int" column = "reimb_status_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "reimbStatus" column = "reimb_status" type = "string"/>
+      
+   </class>
+</hibernate-mapping>

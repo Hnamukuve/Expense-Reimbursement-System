@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "Reimb" table = "ers_reimbursement">
+      
+      <meta attribute = "class-description">
+         This class contains the user reimbursement detail. 
+      </meta>
+      
+      <id name = "id" type = "int" column = "reimb_id">
+         <generator class="native"/>
+      </id>
+      
+      <property name = "reimbAmount" column = "reimb_amount" type = "float"/>
+      <property name = "reimbSubmitted" column = "reimb_submitted" type = "timestamp"/>
+      <property name = "reimbResolved" column = "reimb_resolved" type = "timestamp"/>
+      <property name = "reimbDescription" column = "reimb_description" type = "string"/>
+      <property name = "reimbAthor" column = "reimb_author" type = "int"/>
+      <property name = "reimbResolver" column = "reimb_resolver" type = "int"/>
+      <property name = "reimbStatusId" column = "reimb_status_id" type = "int"/>
+      <property name = "reimbTypeId" column = "reimb_type_id" type = "int"/>
+      
+   </class>
+</hibernate-mapping>
