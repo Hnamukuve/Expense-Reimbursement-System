@@ -3,14 +3,18 @@ package hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 @Entity
+@Table(name = "Users")
+@SecondaryTable(name = "UserRoles")
 public class Users1 {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ers_users_id")
 	private int id;
 	
@@ -29,9 +33,11 @@ public class Users1 {
 	@Column(name = "user_email")
 	private String email;
 	
-	@Column(name = "ers_user_role_id")
+	//TODO change to match exact mapping in hbm file
+	//TODO example to map FK of another table
+	@Column(name = "ers_user_role_id", table = "UserRoles")
 	private int userRoleId;
-
+	
 	public int getId() {
 		return id;
 	}
