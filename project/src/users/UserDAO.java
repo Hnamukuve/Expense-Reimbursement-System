@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 import connection.ConnectionFactory;
-import reimbursements.Reimb;
 
 public class UserDAO implements DAO<Users>{
 
@@ -144,6 +143,8 @@ public class UserDAO implements DAO<Users>{
 				ps.setString(1, email);
 				ResultSet rs = ps.executeQuery(query);
 				
+				
+				// TODO updates do not return results. remove result set.
 				while(rs.next()) {
 					
 					user.setEmail(rs.getString(1));
@@ -193,6 +194,8 @@ public class UserDAO implements DAO<Users>{
 			}
 		}
 		
+		
+		// TODO generally its better practice to not use throws. handle exceptions locally
 		 private List<Users> mapResultSet(ResultSet rs) throws SQLException {
 		        
 		        List<Users> users = new ArrayList<>();
@@ -215,6 +218,7 @@ public class UserDAO implements DAO<Users>{
 		    }
 		
 		
+			// TODO this method doesnt work. where is the query being executed?
 		public static void delete(List<Users> usersList, Connection conn) {
 			
 			try {
@@ -287,7 +291,8 @@ public class UserDAO implements DAO<Users>{
 
 		public Users findUserByEmail(String email) {
 			
-			Users user = null;
+			//Users user = null;
+			Users user = new Users();
 			
 			try {
 				
@@ -300,7 +305,7 @@ public class UserDAO implements DAO<Users>{
 				
 				while(rs.next()) {
 					
-					user.setEmail(rs.getString(1));
+					user.setEmail(email);
 					user.setFirstName(rs.getString(2));
 					user.setId(rs.getInt(3));
 					user.setLastName(rs.getString(4));
@@ -318,9 +323,13 @@ public class UserDAO implements DAO<Users>{
 			return user;
 		}
 		
+		// TODO in real life, you wouldnt do this query because multiple users can have
+		// the same password and returning another user with the same password is a
+		// security issue. need to fix/find alternative.
 		public Users findUserByPassword(String password) {
-			
-			Users user = null;
+	
+			//Users user = null;
+			Users user = new Users();
 			
 			try {
 				
@@ -337,7 +346,7 @@ public class UserDAO implements DAO<Users>{
 					user.setFirstName(rs.getString(2));
 					user.setId(rs.getInt(3));
 					user.setLastName(rs.getString(4));
-					user.setPassword(rs.getString(5));
+					user.setPassword(password);
 					user.setUserRoleId(rs.getInt(6));
 					user.setUsername(rs.getString(7));
 				}
@@ -353,19 +362,19 @@ public class UserDAO implements DAO<Users>{
 		}
 
 		public boolean updateUser(Users user) {
-			// TODO Auto-generated method stub
+			// TODO implement?
 			return false;
 		}
 
 		@Override
 		public void update(Users t) {
-			// TODO Auto-generated method stub
+			// TODO implement?
 			
 		}
 
 		
 //		public boolean updateUsers(Users user) {
-//			// TODO Auto-generated method stub
+//			// TODO implement?
 //			return false;
 //		}
 		
