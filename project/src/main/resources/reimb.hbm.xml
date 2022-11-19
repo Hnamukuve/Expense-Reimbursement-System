@@ -4,7 +4,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-   <class name = "Reimb" table = "ers_reimbursement">
+   <class name = "hibernate.Reimb1" table = "ers_reimbursement">
       
       <meta attribute = "class-description">
          This class contains the user reimbursement detail. 

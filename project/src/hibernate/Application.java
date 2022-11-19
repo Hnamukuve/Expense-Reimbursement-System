@@ -3,7 +3,6 @@ package hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 public class Application {
@@ -11,14 +10,21 @@ public class Application {
 	//private static SessionFactory factory; 
 	public static void main(String[] args) {
 		
-		Configuration configuration = new Configuration();
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
 		
-		configuration.configure("hibernate.cfg.xml");
-		
-		((AnnotationConfiguration) configuration).addAnnotatedClass(Users1.class);
-		
+//		Configuration configuration = new Configuration();
+//		configuration.configure("hibernate.cfg.xml");
+//		((AnnotationConfiguration) configuration).addAnnotatedClass(Users1.class);
 		//create Session factory
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
+//		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		
+		//this does all of the above in one line of code:
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		
 		
 		//initialize Session object
 		Session session = sessionFactory.openSession();
@@ -60,7 +66,7 @@ public class Application {
 		Transaction tx = null;
 		try{
 		//Get Session
-		sessionFactory1 = HibernateAnnotationUtil.getSessionFactory();
+//		sessionFactory1 = HibernateAnnotationUtil.getSessionFactory();
 		session1 = sessionFactory1.getCurrentSession();
 		System.out.println("Session created");
 		//start transaction
