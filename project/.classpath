@@ -16,6 +16,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/workspace/Expense-Reimbursement-System/project/src/main/resources/postgresql-42.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/helle/eclipse-workspace/java/project/src/main/resources/postgresql-42.5.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

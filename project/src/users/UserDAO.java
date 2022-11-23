@@ -132,7 +132,7 @@ public class UserDAO implements DAO<Users>{
 		
             public boolean updateUserEmail(String email) {
 			
-            	Users user = null;
+            	Users user = new Users();
 			// sql will look something like: UPDATE ERS_USERS SET EMAIL = 'NEW_EMAIL' WHERE ID = ?
 			try {
 				

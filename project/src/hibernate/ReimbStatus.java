@@ -11,17 +11,17 @@ public class ReimbStatus {
 
 	@Id
 	@Column(name = "reimb_status_id")
-	private int id;
+	private int reimbStatusId;
 	
 	@Column(name = "reimb_status")
 	private int reimbStatus;
 
-	public int getId() {
-		return id;
+	public int getReimbStatusId() {
+		return reimbStatusId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setReimbStatusId(int reimbStatusId) {
+		this.reimbStatusId = reimbStatusId;
 	}
 
 	public int getReimbStatus() {
@@ -34,18 +34,18 @@ public class ReimbStatus {
 
 	@Override
 	public String toString() {
-		return "ReimbStatus [id=" + id + ", reimbStatus=" + reimbStatus + "]";
+		return "ReimbStatus [id=" + reimbStatusId + ", reimbStatus=" + reimbStatus + "]";
 	}
 
 	public ReimbStatus(int id, int reimbStatus) {
 		super();
-		this.id = id;
+		this.reimbStatusId = reimbStatusId;
 		this.reimbStatus = reimbStatus;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, reimbStatus);
+		return Objects.hash(reimbStatusId, reimbStatus);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class ReimbStatus {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbStatus other = (ReimbStatus) obj;
-		return id == other.id && reimbStatus == other.reimbStatus;
+		return reimbStatusId == other.reimbStatusId && reimbStatus == other.reimbStatus;
 	}
 
 	public ReimbStatus() {

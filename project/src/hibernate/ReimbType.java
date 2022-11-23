@@ -9,17 +9,19 @@ public class ReimbType {
 
 	@Id
 	@Column(name = "reimb_type_id")
-	private int id;
+	private int reimbTypeId;
 	
 	@Column(name = "reimb_type")
 	private int reimbType;
 
-	public int getId() {
-		return id;
+	
+
+	public int getReimbTypeId() {
+		return reimbTypeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setReimbTypeId(int reimbTypeId) {
+		this.reimbTypeId = reimbTypeId;
 	}
 
 	public int getReimbType() {
@@ -32,7 +34,7 @@ public class ReimbType {
 
 	public ReimbType(int id, int reimbType) {
 		super();
-		this.id = id;
+		this.reimbTypeId = reimbTypeId;
 		this.reimbType = reimbType;
 	}
 
@@ -43,7 +45,7 @@ public class ReimbType {
 
 	@Override
 	public String toString() {
-		return "ReimbType [id=" + id + ", reimbType=" + reimbType + "]";
+		return "ReimbType [id=" + reimbTypeId + ", reimbType=" + reimbType + "]";
 	}
 
 	@Override

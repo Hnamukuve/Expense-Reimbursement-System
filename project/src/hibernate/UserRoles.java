@@ -14,6 +14,7 @@ import javax.persistence.Table;
 public class UserRoles {
 	
 	@Id
+	//TODO add generation type
 	@Column(name = "ers_user_roles")
 	private int id;
 	

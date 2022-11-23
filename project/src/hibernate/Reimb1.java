@@ -5,16 +5,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "ers_reimbursement")
+//TODO add secondary table
 public class Reimb1 {
 
 	@Id
+	//TODO add generation type
 	@GeneratedValue
 	@Column(name = "reimb_id")
-	private int reimbId;
+	private int reimbid;
 	
 	@Column(name = "reimb_amount")
 	private float reimbAmount;
@@ -40,12 +44,12 @@ public class Reimb1 {
 	@Column(name = "reimb_type_id")
 	private int reimbTypeId;
 
-	public int getReimbId() {
-		return reimbId;
+	public int getReimbid() {
+		return reimbid;
 	}
 
-	public void setReimbId(int reimbId) {
-		this.reimbId = reimbId;
+	public void setReimbid(int reimbId) {
+		this.reimbid = reimbId;
 	}
 
 	public float getReimbAmount() {
@@ -111,7 +115,6 @@ public class Reimb1 {
 	public void setReimbTypeId(int reimbTypeId) {
 		this.reimbTypeId = reimbTypeId;
 	}
-	
-	
+
 	
 }
