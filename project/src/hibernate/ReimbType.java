@@ -2,12 +2,15 @@ package hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ReimbType {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "reimb_type_id")
 	private int reimbTypeId;
 	
@@ -32,7 +35,7 @@ public class ReimbType {
 		this.reimbType = reimbType;
 	}
 
-	public ReimbType(int id, int reimbType) {
+	public ReimbType(int id, int reimbType, int reimbTypeId) {
 		super();
 		this.reimbTypeId = reimbTypeId;
 		this.reimbType = reimbType;

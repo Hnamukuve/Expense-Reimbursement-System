@@ -1,9 +1,6 @@
 package users;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import reimbursements.Reimb;
 
 public class UserService {
 	
@@ -61,15 +58,15 @@ public class UserService {
 		return false;
 	}
 	
-	public Boolean updatePassword(String password) {
+	public Boolean updateUsername(String username) {
 		
 		ud = new UserDAO();
 		Users user = null;
-		user = ud.findUserByPassword(password);
-		user.setPassword(password);
+		user = ud.findUserByUsername(username);
+		user.setUsername(username);
 		if(ud.updateUser(user)) {
 			return true;
-		}
+	}
 		
 		return null;
 		

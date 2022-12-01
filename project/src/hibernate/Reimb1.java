@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
@@ -11,12 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ers_reimbursement")
-//TODO add secondary table
+@SecondaryTable(name = "ers_reimb_status, ers_reimb_type")
 public class Reimb1 {
 
 	@Id
 	//TODO add generation type
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "reimb_id")
 	private int reimbid;
 	
@@ -38,10 +39,10 @@ public class Reimb1 {
 	@Column(name = "reimb_resolver")
 	private int reimbResolver;
 	
-	@Column(name = "reimb_status_id")
+	@Column(name = "reimb_status_id", table = "ers_reimb_status")
 	private int reimbStatusId;
 	
-	@Column(name = "reimb_type_id")
+	@Column(name = "reimb_type_id", table = "ers_reimb_type")
 	private int reimbTypeId;
 
 	public int getReimbid() {

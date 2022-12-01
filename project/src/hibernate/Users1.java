@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Users")
-@SecondaryTable(name = "UserRoles")
+@SecondaryTable(name = "ers_user_roles")
 public class Users1 {
 
 	@Id
@@ -35,7 +35,7 @@ public class Users1 {
 	
 	//TODO change to match exact mapping in hbm file
 	//TODO example to map FK of another table
-	@Column(name = "ers_user_role_id", table = "UserRoles")
+	@Column(name = "ers_user_role_id", table = "ers_user_roles")
 	private int userRoleId;
 	
 	public int getId() {

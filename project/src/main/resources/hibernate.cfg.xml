@@ -14,8 +14,11 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
 		<property name="show_sql">true</property>
-<!--TODO add mapping resources for other classes-->
+
 		<mapping resource="users.hbm.xml" />
 		<mapping resource="reimb.hbm.xml" />
+		<mapping resource="userRoles.hbm.xml"/>
+		<mapping resource="reimbType.hbm.xml"/>
+		<mapping resource="reimbStatus.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

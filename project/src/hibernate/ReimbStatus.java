@@ -4,12 +4,15 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ReimbStatus {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "reimb_status_id")
 	private int reimbStatusId;
 	
@@ -37,7 +40,7 @@ public class ReimbStatus {
 		return "ReimbStatus [id=" + reimbStatusId + ", reimbStatus=" + reimbStatus + "]";
 	}
 
-	public ReimbStatus(int id, int reimbStatus) {
+	public ReimbStatus(int id, int reimbStatus, int reimbStatusId) {
 		super();
 		this.reimbStatusId = reimbStatusId;
 		this.reimbStatus = reimbStatus;

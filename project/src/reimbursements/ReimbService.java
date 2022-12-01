@@ -1,9 +1,7 @@
 package reimbursements;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import users.UserDAO;
 import users.Users;
 
 
@@ -40,6 +38,7 @@ public class ReimbService {
 		List<Reimb> reimb = rd.findAllById(user.getId());
 		return reimb;
 	}
+	
 	
 	public Boolean getReimbByStatusId(int status_id) {
 		

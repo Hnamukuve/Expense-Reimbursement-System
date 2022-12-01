@@ -20,7 +20,7 @@ public class UserDAO implements DAO<Users>{
 	        //users.add(new Users(7, "Joel", "plc390fgtty", "Joel", "Kippler", "joekippler@gmail.com", 10));
 	    }
 
-		@Override
+	    @Override
 		public Optional get(long id) {
 		
 			return null;
@@ -103,7 +103,7 @@ public class UserDAO implements DAO<Users>{
 			}
 		}
 
-		public static boolean insertUser(Users user) {
+		public boolean insertUser(Users user) {
 			try {
 				String query = "INSERT INTO ERS_USERS (user_email, user_first_name, ers_users_id, user_last_name, ers_password, ers_user_role_id, ers_username)"
 						+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -195,50 +195,27 @@ public class UserDAO implements DAO<Users>{
 		}
 		
 		
-		// TODO generally its better practice to not use throws. handle exceptions locally
-		 private List<Users> mapResultSet(ResultSet rs) throws SQLException {
-		        
-		        List<Users> users = new ArrayList<>();
-		        
-		        while (rs.next()) {
-		        	
-		            Users user = new Users();
-		            user.setId(rs.getInt("ers_users_id"));
-		            user.setUsername(rs.getString("ers_username"));
-		            user.setEmail(rs.getString("user_email"));
-		            user.setPassword(rs.getString("ers_password"));
-		            user.setFirstName(rs.getString("user_first_name"));
-		            user.setLastName(rs.getString("user_last_name"));
-		            user.setUserRoleId(rs.getInt("user_role_id"));
-		           
-		            users.add(user);
-		        }
-
-		        return users;
-		    }
-		
-		
-			// TODO this method doesnt work. where is the query being executed?
-		public static void delete(List<Users> usersList, Connection conn) {
-			
-			try {
-				
-			String query = "DELETE FROM USERS WHERE ID = ?";
-			
-			PreparedStatement deleteUsers = conn.prepareStatement(query);
-			
-			for(Users users : usersList) {
-			deleteUsers.setInt(3,users.getId());
-			}
-			System.out.println("Record Successfully deleted");
-			
-		} catch (SQLException e) {
-			System.out.println("Delete failed");
-			e.printStackTrace();
-		}
-		
-
-		}
+		// TODO this method doesnt work. where is the query being executed?
+//		public static void delete(List<Users> usersList, Connection conn) {
+//			
+//			try {
+//				
+//			String query = "DELETE FROM USERS WHERE ID = ?";
+//			
+//			PreparedStatement deleteUsers = conn.prepareStatement(query);
+//			
+//			for(Users users : usersList) {
+//			deleteUsers.setInt(3,users.getId());
+//			}
+//			System.out.println("Record Successfully deleted");
+//			
+//		} catch (SQLException e) {
+//			System.out.println("Delete failed");
+//			e.printStackTrace();
+//		}
+//		
+//
+//		}
 
 		public List<Users> getAllUsers() {
 			
@@ -255,6 +232,7 @@ public class UserDAO implements DAO<Users>{
 			return user;
 		}
 
+		
 		public Object findUserById(int id) {
 			
 			Users user = null;
@@ -326,40 +304,40 @@ public class UserDAO implements DAO<Users>{
 		// TODO in real life, you wouldnt do this query because multiple users can have
 		// the same password and returning another user with the same password is a
 		// security issue. need to fix/find alternative.
-		public Users findUserByPassword(String password) {
-	
-			//Users user = null;
-			Users user = new Users();
-			
-			try {
-				
-				String query = "SELECT * FROM  ERS_USERS WHERE ers_password = ?";
-				ConnectionFactory connFactory = new ConnectionFactory();
-				Connection conn = connFactory.connect();
-				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setString(1, password);
-				ResultSet rs = ps.executeQuery(query);
-				
-				while(rs.next()) {
-					
-					user.setEmail(rs.getString(1));
-					user.setFirstName(rs.getString(2));
-					user.setId(rs.getInt(3));
-					user.setLastName(rs.getString(4));
-					user.setPassword(password);
-					user.setUserRoleId(rs.getInt(6));
-					user.setUsername(rs.getString(7));
-				}
-				System.out.println("Sucessfully queried the DB!");
-				
-			} catch (SQLException e) {
-				System.out.println("User Update failed!!!");
-				e.printStackTrace();
-			return null;
-		}	
-			return user;
-			
-		}
+//		public Users findUserByUsername(String username) {
+//	
+//			//Users user = null;
+//			Users user = new Users();
+//			
+//			try {
+//				
+//				String query = "SELECT * FROM  ERS_USERS WHERE ers_username = ?";
+//				ConnectionFactory connFactory = new ConnectionFactory();
+//				Connection conn = connFactory.connect();
+//				PreparedStatement ps = conn.prepareStatement(query);
+//				ps.setString(1, username);
+//				ResultSet rs = ps.executeQuery(query);
+//				
+//				while(rs.next()) {
+//					
+//					user.setEmail(rs.getString(1));
+//					user.setFirstName(rs.getString(2));
+//					user.setId(rs.getInt(3));
+//					user.setLastName(rs.getString(4));
+//					user.setPassword(password);
+//					user.setUserRoleId(rs.getInt(6));
+//					user.setUsername(rs.getString(7));
+//				}
+//				System.out.println("Sucessfully queried the DB!");
+//				
+//			} catch (SQLException e) {
+//				System.out.println("User Update failed!!!");
+//				e.printStackTrace();
+//			return null;
+//		}	
+//			return user;
+//			
+//		}
 
 		public boolean updateUser(Users user) {
 			// TODO implement?
